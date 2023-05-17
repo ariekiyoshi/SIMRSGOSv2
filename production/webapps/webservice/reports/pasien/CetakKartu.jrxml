@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CetakKartu" pageWidth="240" pageHeight="153" orientation="Landscape" columnWidth="240" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c9069c98-01ee-43c0-8523-0a0b36708f98">
+	<property name="ireport.zoom" value="2.853116706110003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="93"/>
+	<style name="MyStyle" forecolor="#000000" pattern="" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() > 25 && $F{NAMALENGKAP}.trim().length() <= 30]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() > 30]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() < 25]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="PNORM" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL master.CetakBarcodeRM($P{PNORM})]]>
+	</queryString>
+	<field name="NORM" class="java.lang.String"/>
+	<field name="NORM2" class="java.lang.String"/>
+	<field name="NAMALENGKAP" class="java.lang.String"/>
+	<field name="NORMLABEL" class="java.lang.String"/>
+	<field name="KARAKTER" class="java.lang.String"/>
+	<field name="GOLDARAH" class="java.lang.String"/>
+	<field name="RHESUS" class="java.lang.String"/>
+	<field name="NOKTP" class="java.lang.String"/>
+	<field name="NOJKN" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="146" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="66" width="111" height="15" uuid="c044f542-cc9f-46df-984e-0ac997ac904d"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NORM2}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="11" y="83" width="63" height="20" uuid="8d793d7a-121e-4861-993c-9581731023ca"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false" barWidth="3" barHeight="100">
+					<jr:codeExpression><![CDATA[$F{NORMLABEL}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="MyStyle" x="11" y="52" width="204" height="14" uuid="0e3ba9f6-b076-42dd-874a-d63705f718e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="117" width="94" height="14" uuid="4b325e5c-547c-4267-b30d-66592706e89d"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{NOKTP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="103" width="94" height="14" uuid="d419fbcc-8cd1-49c0-9040-c3c22c582f19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{NOJKN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="103" width="30" height="14" uuid="f66aa9ed-894c-47e1-8be8-19ae08a6c58c"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["JKN-KIS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="117" width="30" height="14" uuid="39c46486-0374-4375-ab43-abcf6a4775b5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NIK"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="117" width="50" height="14" uuid="495176cf-b351-43e2-bf27-3f27502452d6"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["RHESUS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="103" width="50" height="14" uuid="1b90ada5-0908-49bd-9270-9c6381261898"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["GOL. DARAH"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="103" width="53" height="14" uuid="29e55193-03c4-4355-9fbe-3e868f1e9fa5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{GOLDARAH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="117" width="53" height="14" uuid="82f7097f-e5eb-4381-ba2e-9876610f8dd5"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[": "+$F{RHESUS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

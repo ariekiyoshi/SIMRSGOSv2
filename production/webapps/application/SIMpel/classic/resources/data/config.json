@@ -1,0 +1,6 @@
+webservice = (function() {
+	var host = location.hostname + (location.port == '' ? '' : ':' + location.port);	
+	return {
+		location: location.protocol+"//"+host+"/webservice/"
+	};
+})();

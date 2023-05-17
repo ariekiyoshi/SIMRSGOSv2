@@ -1,0 +1,22 @@
+<?php
+$title = 'Generator Signature';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('generator.rpc.signature', array('action' => 'index')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
+
+if(isset($this->result)) {
+	$result = $this->result;
+	echo "<br/><b>Hasil:<b><br/>";
+	echo "<textarea style='width: 500px; height: 100px'>";
+	echo "Timestamp: \r\n".$result["timestamp"]."\r\n";
+	echo "Signature: \r\n".$result["signature"];
+	echo "</textarea>";
+}

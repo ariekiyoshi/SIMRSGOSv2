@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanPendapatanPerCaraBayar" language="groovy" pageWidth="935" pageHeight="595" orientation="Landscape" columnWidth="895" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63657df9-ceb0-4099-ad02-7ec31db9844c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TGLAWAL" class="java.lang.String"/>
+	<parameter name="TGLAKHIR" class="java.lang.String"/>
+	<parameter name="LAPORAN" class="java.lang.String"/>
+	<parameter name="RUANGAN" class="java.lang.String"/>
+	<parameter name="CARABAYAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[call laporan.LaporanPendapatanPerCaraBayar($P{TGLAWAL},$P{TGLAKHIR},$P{RUANGAN},$P{LAPORAN},$P{CARABAYAR})]]>
+	</queryString>
+	<field name="NAMAINST" class="java.lang.String"/>
+	<field name="ALAMATINST" class="java.lang.String"/>
+	<field name="IDCARABAYAR" class="java.lang.Integer"/>
+	<field name="CARABAYAR" class="java.lang.String"/>
+	<field name="INSTALASI" class="java.lang.String"/>
+	<field name="CARABAYARHEADER" class="java.lang.String"/>
+	<field name="JENISCARABAYAR" class="java.lang.Integer"/>
+	<field name="ADMINISTRASI" class="java.math.BigDecimal"/>
+	<field name="SARANA" class="java.math.BigDecimal"/>
+	<field name="BHP" class="java.math.BigDecimal"/>
+	<field name="DOKTER_OPERATOR" class="java.math.BigDecimal"/>
+	<field name="DOKTER_ANASTESI" class="java.math.BigDecimal"/>
+	<field name="DOKTER_LAINNYA" class="java.math.BigDecimal"/>
+	<field name="PENATA_ANASTESI" class="java.math.BigDecimal"/>
+	<field name="PARAMEDIS" class="java.math.BigDecimal"/>
+	<field name="NON_MEDIS" class="java.math.BigDecimal"/>
+	<field name="TARIF" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="213" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="11" width="329" height="11" uuid="2f9eb0fe-870c-47a8-a315-f459de563ffa"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ALAMATINST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="329" height="11" uuid="565abf05-6cf6-4715-bb27-723d23494399"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAINST}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="45" width="365" height="18" uuid="5d48b8cd-22e4-421b-a818-00d14f3c0b9f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENDAPATAN PER CARA BAYAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="173" width="275" height="40" uuid="98fb771e-950e-4f93-938d-266814be496d"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cara Bayar]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="82" width="527" height="47" uuid="5e3c31ae-afbc-45dd-a6b8-e0b1f7361deb"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSTALASI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="129" width="555" height="18" uuid="6ebeffd0-53f6-4daf-9993-e6da370bc00e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PERIODE " + DateFormat.getDateInstance(DateFormat.LONG, $P{REPORT_LOCALE}).format(java.sql.Timestamp.valueOf($P{TGLAWAL})).toUpperCase() + ($P{TGLAWAL}.substring(0, 10).equalsIgnoreCase($P{TGLAKHIR}.substring(0, 10)) ? "" : " S/D " + DateFormat.getDateInstance(DateFormat.LONG, $P{REPORT_LOCALE}).format(java.sql.Timestamp.valueOf($P{TGLAKHIR})).toUpperCase())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="724" y="173" width="59" height="40" uuid="a4a03048-883c-4fc8-b090-5b51c92866a3"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Paramedis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="173" width="77" height="40" uuid="ec3583fb-c439-474d-8a13-e69d73a46d81"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[BHP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="173" width="64" height="40" uuid="2e406cc0-292a-499b-bdb4-1f4ef3b4086c"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sarana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="173" width="72" height="40" uuid="64835e7d-97c9-4cea-93ea-7b63f0d97b2c"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dokter Operator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="173" width="59" height="40" uuid="cf15f36e-6008-46b0-95c4-fe49855e89cf"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Penata Anastesi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="606" y="173" width="59" height="40" uuid="e107616f-3747-4bae-91e5-84a27a42b6b1"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dokter Lainnya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="783" y="173" width="51" height="40" uuid="8e43b1bc-4fa4-46c7-afe4-0f48de67a284"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Non Medis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="551" y="173" width="55" height="40" uuid="26570d07-584e-4d4b-bf98-0718c6c5d887"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Dokter Anastesi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="173" width="62" height="40" uuid="f60ab803-625c-43f2-97d3-450ba5cc649c"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Administrasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="834" y="173" width="61" height="40" uuid="dcbc3bb1-ca52-4514-b137-ed797ebb8985"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="64" width="527" height="18" uuid="25f47621-de51-4d2b-9d90-2a9c7059bc50"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CARA BAYAR : "+ $F{CARABAYARHEADER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="275" height="24" uuid="f87a4423-689d-4680-a4ae-4bb61c66acd2"/>
+				<box leftPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="783" y="0" width="51" height="24" uuid="e6875299-9fd6-41b3-92bf-b5f96837105c"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NON_MEDIS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="276" y="0" width="62" height="24" uuid="2a2c1fcf-c2bf-440f-bdbf-6d2fcfbf3671"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADMINISTRASI}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="665" y="0" width="59" height="24" uuid="26c63200-60fe-46ca-8512-22134700e411"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PENATA_ANASTESI}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="551" y="0" width="55" height="24" uuid="761980a5-5882-42ff-8031-21f4e5a5ac16"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOKTER_ANASTESI}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="834" y="0" width="61" height="24" uuid="d5630ec5-fec6-4444-8564-7629c3e66915"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TARIF}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="479" y="0" width="72" height="24" uuid="7779a0cf-0808-4be1-bbdd-1220b103fb87"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOKTER_OPERATOR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="724" y="0" width="59" height="24" uuid="0efe74a2-c870-491c-8169-a91c7df5c39a"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PARAMEDIS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="338" y="0" width="64" height="24" uuid="8227fc72-192e-4cf5-b3f2-5fcc2337ffab"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SARANA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="606" y="0" width="59" height="24" uuid="fe0f3a46-a945-471d-bb8b-6ea87687bed8"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOKTER_LAINNYA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="402" y="0" width="77" height="24" uuid="33ce109d-3a32-4067-ad8c-1e193b2b210d"/>
+				<box leftPadding="0" rightPadding="3">
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BHP}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

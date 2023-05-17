@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PermohonanDPJP" language="groovy" pageWidth="595" pageHeight="842" columnWidth="454" leftMargin="85" rightMargin="56" topMargin="56" bottomMargin="56" uuid="e276febf-2843-4ba3-be96-b0b3d1f4d79c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="PNOPEN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL medicalrecord.CetakPermohonanDPJP($P{PNOPEN})]]>
+	</queryString>
+	<field name="NAMA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NORM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Nomor Rekam Medis]]></fieldDescription>
+	</field>
+	<field name="TANGGAL_LAHIR" class="java.lang.String"/>
+	<field name="UMUR" class="java.lang.String"/>
+	<field name="ALAMAT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DPJP" class="java.lang.String"/>
+	<field name="TANGGAL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="454" height="20" uuid="3753321b-26cf-442c-8579-d578777a98ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SURAT PERMOHONAN DOKTER PENANGGUNG JAWAB PASIEN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="464" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="454" height="20" uuid="6c6ab051-4ea5-4d6c-bcee-94bae0100d65"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Yang bertanda tangan dibawah ini :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="147" height="20" uuid="bf30a6f4-1a92-439f-8d5b-e0f2e8d5a1ed"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="21" width="11" height="20" uuid="cc071487-0f1f-4794-9b1c-002d42338e9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="147" height="20" uuid="069accdf-8ddb-4cf7-9ce2-0baf4e8036ea"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[No. RM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="41" width="11" height="20" uuid="5fa83003-9587-450f-8408-d0bc3ebc2bf4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="81" width="147" height="20" uuid="f89f50ea-bac7-4dfd-8524-0e1c34cb0be4"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Umur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="61" width="11" height="20" uuid="3dff01c7-462d-4abb-89bf-08f6113084d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="81" width="11" height="20" uuid="4f897f64-4191-4292-93d3-ff94e82910ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="101" width="147" height="20" uuid="b6c43750-5f1d-41df-8bf2-2d3776e3f6be"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="141" width="454" height="20" uuid="02a505f8-b6a6-427f-ae67-a1cbdb068a0f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Memohon Dokter Penanggung Jawab Pasien adalah :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="161" width="147" height="20" uuid="4cb160ae-9314-4a4f-81b6-33acd349be54"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nama DPJP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="161" width="11" height="20" uuid="10771106-f37c-4d55-bced-5cf86e7aa61f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="201" width="454" height="20" uuid="a7fb50ab-87e0-43d7-b8ca-a858d73f6b06"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Demikian permohonan ini dibuat untuk digunakan seperlunya.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="265" width="158" height="20" uuid="99e1ac6d-a4fc-4cad-817e-1bccc3cdf517"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Dikeluarkan di Palu, Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="300" width="236" height="20" uuid="1c1652b9-33c0-42dd-8d7b-5a65224a4765"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Mengetahui,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="300" width="218" height="20" uuid="f821da2c-d87d-4efc-95c7-a56040c2ed57"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Saya yang Menyatakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="320" width="236" height="20" uuid="dbdfe36e-48c4-4fef-b07f-9e1cd24393e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Dokter/Perawat/Bidan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="320" width="218" height="125" uuid="21d416df-f259-4826-a616-eb8ee31171d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[(______________________)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="340" width="236" height="20" uuid="9b3050c5-8259-4df1-967c-00aacb589130"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Instansi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="360" width="236" height="85" uuid="b326de30-04be-4b87-8704-3862c8c7a16b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[(______________________)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="41" width="296" height="20" uuid="bba10151-e91e-4b50-9ea3-5302e4569147"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="158" y="81" width="296" height="20" uuid="a1cd8e46-c263-4726-959d-f048110ea258"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UMUR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="21" width="296" height="20" uuid="8b4c3e23-f3bd-4b4a-bdf0-70d24d5da92a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="158" y="101" width="296" height="20" uuid="ca394c6a-2556-44ef-ac90-2636e64f17e8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ALAMAT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="161" width="100" height="20" uuid="eb0571df-8579-4431-8c72-a428aaa8a08f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DPJP}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="158" y="265" width="100" height="20" uuid="98dfa4bb-17f0-4084-8b66-11a373b8537e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="147" y="101" width="11" height="20" uuid="83c6eab6-cc4b-4e2d-a885-eb2b6a38c116"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="61" width="147" height="20" uuid="33afeded-9631-4784-a445-54cdb53b7728"/>
+				<box leftPadding="50"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="158" y="61" width="296" height="20" uuid="473ab316-67b0-4f3c-8f22-2fd58e2c237c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TANGGAL_LAHIR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

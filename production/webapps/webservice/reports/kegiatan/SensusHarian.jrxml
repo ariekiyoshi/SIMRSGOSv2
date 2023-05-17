@@ -1,0 +1,3185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SensusHarian" language="groovy" pageWidth="612" pageHeight="935" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="8" bottomMargin="20" uuid="11721bc4-1920-400f-829e-8c8cd3020102">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="205"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="PasienMasuk" uuid="fb33a811-27bd-4767-a2fc-2db4185705a5">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianPasienMasuk($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="NORM" class="java.lang.String"/>
+		<field name="NAMALENGKAP" class="java.lang.String"/>
+		<field name="JENISKELAMIN" class="java.lang.String"/>
+		<field name="NOPEN" class="java.lang.String"/>
+		<field name="CARABAYAR" class="java.lang.String"/>
+		<field name="KAMAR" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PasienPindahan" uuid="fe866ec2-40cd-46e4-8535-9acbc71cbe41">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianPasienPindahan($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="NORM" class="java.lang.String"/>
+		<field name="NAMALENGKAP" class="java.lang.String"/>
+		<field name="JENISKELAMIN" class="java.lang.String"/>
+		<field name="NOPEN" class="java.lang.String"/>
+		<field name="CARABAYAR" class="java.lang.String"/>
+		<field name="KAMAR" class="java.lang.String"/>
+		<field name="KET" class="java.lang.String"/>
+		<field name="ASALRUANGAN" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PasienDipindahkan" uuid="5fb1b415-9f73-463d-94ba-0b30e4dee088">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianPasienDiPindahkan($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="NORM" class="java.lang.String"/>
+		<field name="NAMALENGKAP" class="java.lang.String"/>
+		<field name="JENISKELAMIN" class="java.lang.String"/>
+		<field name="NOPEN" class="java.lang.String"/>
+		<field name="CARABAYAR" class="java.lang.String"/>
+		<field name="KAMAR" class="java.lang.String"/>
+		<field name="KET" class="java.lang.String"/>
+		<field name="MASUK" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="LD" class="java.lang.Long"/>
+		<field name="RUANGANTUJUAN" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="KeluarHidup" uuid="bca8c796-972d-4c72-8375-2d21a5829efc">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianPasienKeluarHidup($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="NORM" class="java.lang.String"/>
+		<field name="NOPEN" class="java.lang.String"/>
+		<field name="NAMALENGKAP" class="java.lang.String"/>
+		<field name="CARABAYAR" class="java.lang.String"/>
+		<field name="JENISKELAMIN" class="java.lang.String"/>
+		<field name="MASUK" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="TGLKELUAR" class="java.sql.Timestamp"/>
+		<field name="LD" class="java.lang.Long"/>
+		<field name="KAMAR" class="java.lang.String"/>
+		<field name="UNIT" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="KeluarMati" uuid="2cec34f3-d659-4fd3-87f9-138dd3e8e64e">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianPasienKeluarMati($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="NORM" class="java.lang.String"/>
+		<field name="NOPEN" class="java.lang.String"/>
+		<field name="NAMALENGKAP" class="java.lang.String"/>
+		<field name="CARABAYAR" class="java.lang.String"/>
+		<field name="JENISKELAMIN" class="java.lang.String"/>
+		<field name="MASUK" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="TGLKELUAR" class="java.sql.Timestamp"/>
+		<field name="LD" class="java.lang.Long"/>
+		<field name="KAMAR" class="java.lang.String"/>
+		<field name="UNIT" class="java.lang.String"/>
+		<field name="KET" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Ikhtisar" uuid="7213d339-2129-42c3-8d19-bb8694913831">
+		<parameter name="TGLAWAL" class="java.lang.String"/>
+		<parameter name="RUANGAN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[CALL laporan.SensusHarianIkhtisar($P{TGLAWAL},$P{RUANGAN})]]>
+		</queryString>
+		<field name="IDX" class="java.lang.Double"/>
+		<field name="RUANGAN" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="keadaan" class="java.lang.String"/>
+		<field name="idkeadaan" class="java.lang.Long"/>
+		<field name="groupkeadaan" class="java.lang.Long"/>
+		<field name="groupket" class="java.lang.String"/>
+		<field name="TOTAL" class="java.math.BigDecimal"/>
+		<field name="VVIPUMUM" class="java.math.BigDecimal"/>
+		<field name="VVIPJKN" class="java.math.BigDecimal"/>
+		<field name="VVIPJKD" class="java.math.BigDecimal"/>
+		<field name="VVIPIKS" class="java.math.BigDecimal"/>
+		<field name="VIPUMUM" class="java.math.BigDecimal"/>
+		<field name="VIPJKN" class="java.math.BigDecimal"/>
+		<field name="VIPJKD" class="java.math.BigDecimal"/>
+		<field name="VIPIKS" class="java.math.BigDecimal"/>
+		<field name="KLS1UMUM" class="java.math.BigDecimal"/>
+		<field name="KLS1JKN" class="java.math.BigDecimal"/>
+		<field name="KLS1JKD" class="java.math.BigDecimal"/>
+		<field name="KLS1IKS" class="java.math.BigDecimal"/>
+		<field name="KLS2UMUM" class="java.math.BigDecimal"/>
+		<field name="KLS2JKN" class="java.math.BigDecimal"/>
+		<field name="KLS2JKD" class="java.math.BigDecimal"/>
+		<field name="KLS2IKS" class="java.math.BigDecimal"/>
+		<field name="HCUUMUM" class="java.math.BigDecimal"/>
+		<field name="HCUJKN" class="java.math.BigDecimal"/>
+		<field name="HCUJKD" class="java.math.BigDecimal"/>
+		<field name="HCUIKS" class="java.math.BigDecimal"/>
+		<field name="KLS3UMUM" class="java.math.BigDecimal"/>
+		<field name="KLS3JKN" class="java.math.BigDecimal"/>
+		<field name="KLS3JKD" class="java.math.BigDecimal"/>
+		<field name="KLS3IKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUB" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVVIPUMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVVIPJKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVVIPIKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVIPUMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVIPJKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBVIPIKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS1UMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS1JKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS1IKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS2UMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS2JKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS2JKD" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS2IKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBHCUUMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBHCUJKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBHCUJKD" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBHCUIKS" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS3UMUM" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS3JKN" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS3JKD" class="java.math.BigDecimal"/>
+		<field name="TOTALSUBKLS3IKS" class="java.math.BigDecimal"/>
+		<variable name="SubTotal" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+		</variable>
+		<variable name="SubTotal1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUB}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPUmum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VVIPUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPJKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VVIPJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPIKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VVIPIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPUmum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VIPUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPJKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VIPJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPIKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{VIPIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1Umum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS1UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1JKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS1JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1IKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS1JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUUmum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{HCUUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUJKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{HCUJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUJKD" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{HCUJKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUIKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{HCUIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2Umum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS2UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2JKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS2JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2JKD" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS2JKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2IKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS2IKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3Umum" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS3UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3JKN" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS3JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3JKD" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS3JKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3IKS" class="java.lang.Integer" resetType="Group" resetGroup="groupkeadaan" calculation="Sum">
+			<variableExpression><![CDATA[$F{KLS3IKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPUmum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVVIPUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPJKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVVIPJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalSVIPIKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVVIPIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPUmum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVIPUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPJKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVIPJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalVIPIKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBVIPIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1Umum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS1UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1JKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS1JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS1IKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS1IKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUUmum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBHCUUMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUJKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBHCUJKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUJKD_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBHCUJKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalHCUIKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBHCUIKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2Umum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS2UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2JKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS2JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2JKD_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS2JKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS2IKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS2IKS}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3Umum_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS3UMUM}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3JKN_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS3JKN}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3JKD_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS3JKD}]]></variableExpression>
+		</variable>
+		<variable name="SubTotalKLS3IKS_1" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{TOTALSUBKLS3IKS}]]></variableExpression>
+		</variable>
+		<group name="groupkeadaan">
+			<groupExpression><![CDATA[$F{groupkeadaan}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="TGLAWAL" class="java.lang.String"/>
+	<parameter name="RUANGAN" class="java.lang.String"/>
+	<parameter name="TGLAKHIR" class="java.lang.String"/>
+	<parameter name="LAPORAN" class="java.lang.String"/>
+	<parameter name="CARABAYAR" class="java.lang.String"/>
+	<parameter name="CARAKELUAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL laporan.SensusHarianRuangan($P{RUANGAN})]]>
+	</queryString>
+	<field name="NAMAINST" class="java.lang.String"/>
+	<field name="ALAMATINST" class="java.lang.String"/>
+	<field name="INSTALASI" class="java.lang.String"/>
+	<field name="RUANG" class="java.lang.String"/>
+	<field name="TGLSKRG" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="114" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="44" width="527" height="47" uuid="c188b33e-408a-4242-83b5-b53b895797d9"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSTALASI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="1" width="164" height="20" uuid="d065a903-0c9e-4d28-94d2-84966b39d033"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SENSUS HARIAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="26" width="329" height="18" uuid="74cb8495-9f88-4a16-8fc8-d283971463ff"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAINST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="91" width="555" height="18" uuid="a08da044-dde3-4c15-b59c-d1d8b8b76e47"/>
+				<textElement verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PERIODE : "+new SimpleDateFormat("dd MMMM yyyy 00:00:00").format(java.sql.Timestamp.valueOf($P{TGLAWAL})).toUpperCase() + " S/D " + new SimpleDateFormat("dd MMMM yyyy 23:59:59").format(java.sql.Timestamp.valueOf($P{TGLAWAL})).toUpperCase()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="37" uuid="732a2e29-a0c2-4aec-9a8d-8c8b6fc8d7c9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="PasienMasuk" uuid="ce518192-5484-4c0c-8f9e-706375dbc110">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="555" uuid="bf3295ba-ff0e-4aa5-815e-fe23e015e19a">
+						<jr:tableHeader height="18" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="18" uuid="68305754-30fe-41ea-b3da-0baa349dfd11"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[PASIEN MASUK]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="38" uuid="a2de108a-378f-4e74-a74d-a1184253f3ac">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="38" height="15" uuid="e87e30c7-859c-4376-9fad-a99a6765ae1d"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="38" height="13" uuid="c5b0cd04-f52e-4f50-8b2f-7aaea5202eeb"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="63" uuid="ba6aadd4-3e8c-41b6-992a-15a8d1c404d8">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="63" height="15" uuid="1d891074-d3e5-4330-a60f-9f2b84d19373"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nopen]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="63" height="13" uuid="eb5c643c-e9d8-46c9-8063-f7cc6bfd8481"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NOPEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="58" uuid="2ae24589-4a8e-4c55-b54c-cd88c4bc18af">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="58" height="15" uuid="77bd0c55-8604-4981-a1f3-e9694506b9c8"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No. RM]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="58" height="13" uuid="9ac7a850-ebab-4a75-bab0-b1cc9bc4ad6f"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="206" uuid="9491fa00-d5cf-40a1-8c4c-c48839c66344">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="206" height="15" uuid="3c86438f-7a56-4d53-8204-0c27a91de0d7"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nama Pasien]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="206" height="13" uuid="1c16f47e-c112-4208-9b74-9c5d4d065246"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="107" uuid="d3cf949e-0963-4b89-ba8f-e5a857beeec5">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="107" height="15" uuid="d2edcb0a-b057-4fdc-a0b2-efcb3518cf96"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Cara Bayar]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="107" height="13" uuid="349885e9-7c9b-4132-99ef-959eb9fc8e5a"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="83" uuid="b5e69365-04f2-4a96-ae2b-b44d02aef532">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="82" height="15" uuid="26cf157a-6be7-4c17-8292-df379f93d7f9"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Kelas]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="14" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="82" height="13" uuid="2bc91d54-d7dd-481b-ac6e-4757aab41284"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KAMAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="44">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="35" uuid="7e475cea-8acc-4d03-a08d-c012832e8499"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="PasienPindahan" uuid="e8234a8e-b05d-4528-96c3-ddd41de26945">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="554" uuid="b4facde5-6010-4c0e-9e27-053384481a3c">
+						<jr:tableHeader height="18" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="18" uuid="c0af00fc-2470-46e6-887b-7b7c0a4c33bf"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PASIEN PINDAHAN]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="27" uuid="a724eecb-2e34-49bc-bf6c-76ac982e9e9f">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="27" height="15" uuid="aa430295-1ac1-401a-b6d3-7a3779f92269"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="27" height="13" uuid="b2170dd1-6455-4bda-88d8-190008a7887d"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="51" uuid="40f5904e-6015-4092-8fc6-c18f7fa9c96a">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="51" height="15" uuid="32b01377-b3e8-45c0-ad41-375990c21bd1"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nopen]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="51" height="13" uuid="384f1686-06da-4752-a3e0-32b0f9985c5d"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NOPEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="40" uuid="a63f5fd3-58be-4bbb-9d90-e143036088e5">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="40" height="15" uuid="af90451d-da36-4d0f-b8d5-492b13fefb59"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No. RM]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="40" height="13" uuid="f3d9b665-3daf-4e40-b011-b293ee758d0d"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="116" uuid="88325fdf-246c-4e76-b189-28d944622277">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="116" height="15" uuid="4478d281-fbb4-48f5-99e3-25b14b500ae4"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nama Pasien]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="116" height="13" uuid="97850566-5dc9-497e-9c4a-ba358783ae07"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="a986e802-b97c-422a-a38a-b5fbb3ffc86a">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="75" height="15" uuid="e0ab0465-5962-421a-8aef-532ce8e4a3f8"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Pindahan Dari]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="75" height="13" uuid="66343247-b328-43ca-bff3-eb63b23d8464"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ASALRUANGAN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="a515827a-bd4b-4e81-85f4-bd3f9b5cb6f3">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="15" uuid="323ed033-3cd5-4d13-b666-f67bbb86e65e"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Cara Bayar]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="13" uuid="c3bc8a9f-c091-4e2e-98d9-ab1e25b3f6e7"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="70" uuid="321bcb46-3c94-43ae-9869-1fb85fee2f4b">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="70" height="15" uuid="6f728a69-1f89-4573-a36d-7e1d844bde1c"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Kelas]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="13" uuid="a57921dd-0639-4de4-9776-8bf1b4588c3b"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KAMAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="85" uuid="cc01cc5a-0aa0-46b6-ba2a-1ceea82770d4">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="85" height="15" uuid="becf9ae6-5469-473f-a607-eccdc175b81e"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Ket.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="13" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="85" height="13" uuid="e2c7f459-1032-4c84-ae78-801063d94e26"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KET}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="49">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="38" uuid="b63f8fb7-23ad-457a-ab09-33063a283400"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="PasienDipindahkan" uuid="8f6d2308-df50-4814-bc0c-c9543e0103be">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="554" uuid="3d64abd3-8d7b-4c4f-afde-d1ecf4673090">
+						<jr:tableHeader height="18" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="18" uuid="bba455b5-9041-4efe-92f7-b52ac67622ca"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PASIEN DIPINDAHKAN]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="27" uuid="87799c94-b8af-4a32-ae44-518362ebd987">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="27" height="15" uuid="d9381d98-55dd-413a-9088-cc2d69cdb873"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="27" height="15" uuid="5e9b8a34-4bb9-434a-97bb-f57a266f1f61"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="49" uuid="b6a279d6-b461-4d46-a471-7e024703bd3e">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="49" height="15" uuid="1bd6b422-ca86-4a92-8a40-c5d9f92ffef3"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nopen]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="49" height="15" uuid="04f03e7f-37fb-4c03-89d7-4a616c9dc6ed"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NOPEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="38" uuid="5c5f2d5f-e2fa-4ede-a9de-2d9c489c0262">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="38" height="15" uuid="0fbb85ec-9a2c-4d5c-83a9-567d2b61bb4a"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No RM]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="38" height="15" uuid="ebbd102a-ed31-41d0-853a-9af23f0b4379"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="3167d2bb-fcbc-429a-917e-e582975a31b4">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="80" height="15" uuid="89c8404e-f644-464a-8d04-d3a462a6019f"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nama Pasien]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="15" uuid="10c19d57-406d-4c8d-8fda-0604363d4208"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="71" uuid="c226cfc9-d620-47d5-8f7f-64c28bd197a9">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="71" height="15" uuid="c48ce489-7e91-4376-949a-9a948142481c"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Tgl Reg]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField pattern="dd-MM-yyyy HH:mm:ss">
+									<reportElement x="0" y="0" width="71" height="15" uuid="f99f395e-ee23-4fac-81ba-50a64f26f95d"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MASUK}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="9aaef9a8-2862-4e69-9518-589b8f42d9e8">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="80" height="15" uuid="93373cf6-1d89-4594-b9f0-2e7f3217a895"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Dipindahkan Ke]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="15" uuid="06fb5f88-8c6a-4c61-a561-2571eccbf050"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{RUANGANTUJUAN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="60" uuid="580133bd-9f49-4d79-a448-7039d2d17f86">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="60" height="15" uuid="e3d4a034-c76f-4120-afb5-6efba3950361"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Cara Bayar]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="60" height="15" uuid="5db4d950-8d7f-4b83-96ec-bb1d3ca67fb6"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="60" uuid="9fd69823-796e-4193-8018-6052be5b72e0">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="60" height="15" uuid="313cf87a-6bc2-44f0-97f1-53e60fd56b3e"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Kelas]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="60" height="15" uuid="3fd9760b-8427-401a-b3ce-64f28f04343d"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KAMAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="20" uuid="d505c397-77fb-401e-9eea-725715fe8b94">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="20" height="15" uuid="f0fc854c-3711-48c6-8c0a-0749f8a16a25"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[LD]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="20" height="15" uuid="03ed0c42-0748-4583-91e6-a6bfcfbd4b4a"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{LD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="69" uuid="fbc31c4f-95e2-42b3-94fb-293893250e85">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="69" height="15" uuid="fbed098f-ec6b-41df-a60a-b8be6054874c"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[KET]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="69" height="15" uuid="781c9ab2-7364-43ba-b05f-5a09037825f9"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KET}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="44">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="39" uuid="023cc461-77a1-4d46-9654-d6680b1012b7"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="KeluarHidup" uuid="b72bd87b-0310-4371-9a77-84a8e76a1b2b">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="554" uuid="fecda55d-954b-4444-848d-a5fd254eaf05">
+						<jr:tableHeader height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="15" uuid="f1c8f614-ea1d-4971-9501-b17111fbd097"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PASIEN KELUAR (HIDUP)]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="27" uuid="d4a37af9-9a61-45ad-a9f9-73882a8eb3b7">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="27" height="15" uuid="563efbf5-a0ac-4aea-88e9-284516620bda"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="27" height="15" uuid="4640504b-7fcb-44e6-a594-e07b089ebf39"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="51" uuid="fe7114e9-81ce-4997-944c-7c319ddec4f3">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="51" height="15" uuid="c2621f47-4492-4672-8db9-561388d3f64a"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nopen]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="51" height="15" uuid="89282053-d2d1-4501-a45a-465226aa5bcb"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NOPEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="40" uuid="f877bf42-e678-41e2-a61a-a77b54736b33">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="40" height="15" uuid="85988761-b308-4a95-8a5a-a97138fa2454"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No. RM]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="40" height="15" uuid="2ce083d2-c8be-4e8b-89ba-88cc181262c6"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="0" uuid="90039ea2-76b9-45bf-8815-849dbb7d50a2">
+							<jr:tableHeader height="15" rowSpan="1"/>
+							<jr:detailCell height="15" rowSpan="1"/>
+						</jr:column>
+						<jr:column width="116" uuid="c6caf898-01ed-4e8d-84a5-de89b532d799">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="116" height="15" uuid="1f884345-e4a8-463c-9cad-954e1d247915"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nama Pasien]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="116" height="15" uuid="06157e2a-e758-4d83-823f-fd07484bc52a"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="97" uuid="b9cce794-e9a2-47c5-a59d-eaa06b7e928d">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="97" height="15" uuid="7ffba386-34ad-4783-8c2f-cd6fcb366ec1"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Tgl Reg]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="97" height="15" uuid="a0f01c2f-c7aa-4f49-8d99-7999627a1661"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MASUK}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="08d35f53-0e12-4ba9-b3c7-cdcd11cca155">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="15" uuid="69c13bdf-2211-411a-8ea6-ef1e0a639be9"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Cara Bayar]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="15" uuid="d9bfbd0f-8332-496c-8f18-3dda5df8d991"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="70" uuid="737fa87d-a494-4372-8996-d05dc694ca6d">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="70" height="15" uuid="e06dc1b1-afad-433f-8c07-30adccfe33f9"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Kelas]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="15" uuid="a70a09ff-44db-4e2c-81c3-4e8b5cbbc339"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KAMAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="63" uuid="2cd618d6-824e-422d-994c-8553d62a729e">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="63" height="15" uuid="75a73774-464e-41a5-81dd-10de79b4194b"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[LD]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="63" height="15" uuid="2ff0c668-2ec2-4507-8a0b-8591d5991fb0"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{LD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="48">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="39" uuid="e6ae8b43-2ab5-4dd0-b81b-bba8152c7872"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="KeluarMati" uuid="a12c5836-7274-446e-a87c-bb8b450059d0">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="554" uuid="767b9bf2-2031-4a76-a62d-3c13fa3b34b1">
+						<jr:tableHeader height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="15" uuid="6235b159-6111-41d0-9be3-800483ccc687"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[PASIEN MENINGGAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="27" uuid="c31e6da2-4961-46b7-bb65-ba26f65b5cfa">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="27" height="15" uuid="329f1d6c-6a5a-4e0c-9243-6637e4823f8e"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No.]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="27" height="15" uuid="cfb3e6c2-7733-4292-a772-f3fd5a0df2fe"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="51" uuid="f0c95dcb-f89b-4385-9b5e-08519347c188">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="51" height="15" uuid="0d084f95-6b5d-4362-a391-b9c95cfdc486"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nopen]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="51" height="15" uuid="d1499419-76f5-4762-9e12-6999e00ab6c6"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NOPEN}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="40" uuid="dcccc4ac-00d4-4b1b-ac10-b68bb0d4681b">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="40" height="15" uuid="274201a9-504e-4ba8-9824-ef4015815cda"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[No. RM]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="40" height="15" uuid="72632697-7e3e-412d-8e44-a86be92960ea"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="0" uuid="1da26b81-26b7-4ebc-bc1f-95092ea4c6f1">
+							<jr:tableHeader height="15" rowSpan="1"/>
+							<jr:detailCell height="15" rowSpan="1"/>
+						</jr:column>
+						<jr:column width="110" uuid="8f925bff-baf9-4304-9cd3-5089f02c18a7">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="110" height="15" uuid="f47ff219-e711-4597-a3a7-5bd880418175"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Nama Pasien]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="110" height="15" uuid="9c5536bd-f54d-4f6e-98ac-f154bd0a0e1f"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="a701e2a4-4520-497f-a4e6-a8083b38d7f8">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="80" height="15" uuid="2d6e9f09-26c4-482b-97b0-5a8945283503"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Tgl Reg]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField pattern="dd-MM-yyyy HH:mm:ss">
+									<reportElement x="0" y="0" width="80" height="15" uuid="78d73340-7e69-40bc-89a3-0c409fd42d99"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{MASUK}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="70" uuid="b64f7a6d-87a8-4d43-b77b-3fb3f9ee9798">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="70" height="15" uuid="89be17d6-701e-43e9-926a-fb6385995d02"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Meninggal]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="15" uuid="000e4232-3f2b-4b6d-9472-3ca7a148d07b"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KET}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="b6ca7686-04dd-4ea1-ae82-5472c339d3db">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="80" height="15" uuid="9a51403a-3e6f-4677-af49-1c3619b7a023"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Cara Bayar]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="15" uuid="62d24a0d-900b-42c3-adc3-dc30e92eb34a"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{CARABAYAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="70" uuid="69d4b6c4-fbc8-4b01-83e1-3892590504f5">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="70" height="15" uuid="91a76923-9936-4561-a285-3c1affa26339"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[Kelas]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="15" uuid="38229eb0-f9e9-4863-b6db-c35fcd7f859a"/>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{KAMAR}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="26" uuid="062a89ab-e5a0-4051-bc54-284f0528daca">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="26" height="15" uuid="dbb620cc-ba6d-4fd6-86e0-70fa1aefc4ce"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8"/>
+									</textElement>
+									<text><![CDATA[LD]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="15" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="26" height="15" uuid="27b10ab8-abdf-41a8-be11-a8fa3d72b046"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{LD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="50">
+			<componentElement>
+				<reportElement key="table 2" x="0" y="0" width="555" height="36" uuid="292c5d88-86d2-47a8-b94a-caf959e05363"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Ikhtisar" uuid="2d76df65-34ba-4c50-a758-0d697deca3ea">
+						<datasetParameter name="TGLAWAL">
+							<datasetParameterExpression><![CDATA[$P{TGLAWAL}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="RUANGAN">
+							<datasetParameterExpression><![CDATA[$P{RUANGAN}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="555" uuid="0dfa62b3-1381-4fd3-bc37-fa3ddc55dba0">
+						<jr:tableHeader height="15" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="554" height="15" uuid="b1654170-1a29-40dd-abd6-3767d8ef2240"/>
+								<box>
+									<topPen lineWidth="0.75"/>
+									<leftPen lineWidth="0.75"/>
+									<bottomPen lineWidth="0.75"/>
+									<rightPen lineWidth="0.75"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[IKHTISAR SELAMA 24 JAM (DUA PULUH EMPAT JAM)]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:column width="102" uuid="c2fc4af4-97e5-4812-bb6a-cdfa69780753">
+							<jr:tableHeader height="45" rowSpan="3">
+								<staticText>
+									<reportElement x="0" y="0" width="102" height="45" uuid="6695fa38-9211-4ef3-bee8-a7e321efa964"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8" isBold="true"/>
+									</textElement>
+									<text><![CDATA[KEADAAN PENDERITA]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:groupFooter groupName="groupkeadaan">
+								<jr:cell height="18" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="102" height="18" uuid="c76b1967-f023-43d5-be19-26bd5cf5bb00"/>
+										<box rightPadding="3">
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Right" verticalAlignment="Middle">
+											<font fontName="Arial" size="7" isBold="true"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{groupket}]]></textFieldExpression>
+									</textField>
+								</jr:cell>
+							</jr:groupFooter>
+							<jr:columnHeader height="0" rowSpan="1"/>
+							<jr:detailCell height="18" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="102" height="18" uuid="ba4fc50b-3c3c-4970-bd6b-f84d00047c46">
+										<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false:true]]></printWhenExpression>
+									</reportElement>
+									<box leftPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font size="7"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{keadaan}]]></textFieldExpression>
+								</textField>
+								<textField>
+									<reportElement x="0" y="0" width="102" height="18" uuid="8076fbe4-ab7f-4959-a1f4-0718be78a3dd">
+										<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true:false]]></printWhenExpression>
+									</reportElement>
+									<box leftPadding="0" rightPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Right" verticalAlignment="Middle">
+										<font fontName="Arial" size="8" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["JUMLAH (I)-(II)"]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:columnGroup width="420" uuid="1bd65282-2d59-4391-9e08-d8e6f23c59c2">
+							<jr:tableHeader height="15" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="420" height="15" uuid="9bfe81a5-445e-4ccd-91ff-4b4aa355d6c8"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8" isBold="true"/>
+									</textElement>
+									<text><![CDATA[K E L A S]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:columnGroup width="60" uuid="ee69733f-75fc-46de-b96c-d05c022e8120">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="60" height="15" uuid="7254b754-bb30-404e-82ff-3554cb55cc85"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[SVIP]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="64a88fa9-602a-4601-821b-47f28d19cc6f">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="eccc3e48-7da9-423e-9c48-d5d2a2c0d6ba"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="a6d1a1b3-d953-483c-9446-8d69543a2364"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalSVIPUmum}==0 ? '' : $V{SubTotalSVIPUmum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="e4cacc19-9937-4704-a0e3-5003365f79a0">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VVIPUMUM}==0 ? '' : $F{VVIPUMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="cae45f2c-8aaa-4312-87eb-d68803ba1735">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalSVIPUmum_1}==0 ? '' : $V{SubTotalSVIPUmum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="b8564733-2deb-4457-9257-caebd5f0fa5b">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="ff6535f0-0352-44ba-b325-515b99d45392"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="bf7812ed-59b4-46ab-b3d8-85249e579b04"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalSVIPJKN}==0 ? '' : $V{SubTotalSVIPJKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="db657042-82fe-4a41-8b67-f4e5b4c3da55">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VVIPJKN}==0 ? '' : $F{VVIPJKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="b271ce50-3222-4b2a-8407-234bf07c026b">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalSVIPJKN_1}==0 ? '' : $V{SubTotalSVIPJKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="8e5d953c-c2ec-4d60-9007-c5d6672c1bb3">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="66f06980-07cc-41eb-9569-430a7a43b4b1"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="42446784-ff2f-472d-b62f-0d002c7d0ef5"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalSVIPIKS}==0 ? '' : $V{SubTotalSVIPIKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="255e3b1e-74a2-4487-b06c-60dd32d48891">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VVIPIKS}==0 ? '' : $F{VVIPIKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="507e2a94-0ca6-4948-afbe-963221f6feb5">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalSVIPIKS_1}==0 ? '' : $V{SubTotalSVIPIKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+							<jr:columnGroup width="60" uuid="80c6d3e4-7b2e-4f79-aa9e-a9a13d8e09a5">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="60" height="15" uuid="b0c8766b-2c7d-452f-9584-786440b0a59e"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[VIP]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="68b8a1c2-4884-421b-bbd6-33d297d733ed">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="b5d93f8c-efd4-40de-8aae-98a3e9d9a194"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="dc04dfc4-e5bd-4884-a099-cd985a60de8d"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalVIPUmum}==0 ? '' : $V{SubTotalVIPUmum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="27fba0c0-2a4b-4730-965d-ba3f5b299806">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VIPUMUM}==0 ? '' : $F{VIPUMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="ea2c3759-8cc6-44cf-8c35-25d0e4481ee6">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalVIPUmum_1}==0 ? '' : $V{SubTotalVIPUmum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="30b82542-6e20-4572-a57d-1b22feeb405a">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="19444c1e-7d28-4d31-9c27-331f26aec3dd"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="5c5b5347-34f5-43a1-b3bc-19408db5e041"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalVIPJKN}==0 ? '' : $V{SubTotalVIPJKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="8caeea2a-2943-4495-8db8-2178ef01e636">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VIPJKN}==0 ? '' : $F{VIPJKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="50cb5d6b-6711-43a4-a270-37077a565887">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalVIPJKN_1}==0 ? '' : $V{SubTotalVIPJKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="69a8756b-cd1b-4d23-84c2-d5157c06652e">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="0e06e8a0-839f-4b14-99a0-97c1e2ade205"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="55f500e4-9b57-4fba-9093-d9ee407b5c2e"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalVIPIKS}==0 ? '' : $V{SubTotalVIPIKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="8b45b3e8-905e-4daf-8c0c-2d9059dffbb9">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{VIPIKS}==0 ? '' : $F{VIPIKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="7bf969c5-b320-41c3-9908-097e4d857453">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalVIPIKS_1}==0 ? '' : $V{SubTotalVIPIKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+							<jr:columnGroup width="60" uuid="cf6385fb-d14c-47d4-8741-1756856747c8">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="60" height="15" uuid="0dcdaab2-1638-49ad-a44f-8dda2826a420"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[I]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="10c0db43-587b-4cf6-8d0a-1aa767337bf6">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="60badd07-dff9-4f13-b483-24662f232a27"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="86698bee-7a2e-4550-a474-c07d0993086a"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS1Umum}==0 ? '' : $V{SubTotalKLS1Umum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="43e9d3b2-3b04-48e2-b7e7-130ce366f867">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS1UMUM}==0 ? '' : $F{KLS1UMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="6acd33a1-5df1-48e4-83cb-bdbb95085019">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS1Umum_1}==0 ? '' : $V{SubTotalKLS1Umum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="c0df7689-ceef-4e11-b0b7-097ba3bf8648">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="71a1b201-1ab7-4f9e-b4b9-4fc17982c136"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="096a93f0-f8e8-48c5-87e9-fbfd3a8d3f36"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS1JKN}==0 ? '' : $V{SubTotalKLS1JKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="a032e44f-fe31-4654-9483-05d16d0b2dc4">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS1JKN}==0 ? '' : $F{KLS1JKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="d79bb189-31fd-4623-8cb0-9a4104bde240">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS1JKN_1}==0 ? '' : $V{SubTotalKLS1JKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="6ebc2843-2794-40e6-b5c7-806606643f22">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="629b5ba7-ca13-42c6-9fbf-e9e493e282cf"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="07df7e0b-7023-40a3-a003-e8f12036c4b2"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS1IKS}==0 ? '' : $V{SubTotalKLS1IKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="bb90ec60-a6a6-4199-9cc6-3b36ee014d9e">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS1IKS}==0 ? '' : $F{KLS1IKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="70582147-053e-4f92-8a1c-6f59d0ab1b0a">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS1IKS_1}==0 ? '' : $V{SubTotalKLS1IKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+							<jr:columnGroup width="80" uuid="be60cafc-264f-4d04-b406-676d082bbb18">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="80" height="15" uuid="2ae05c64-4076-4752-a061-46090de8bed3"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[HCU/Intesif]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="818e6458-0405-46a7-a8d6-1f2bbdb08fd4">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="403a597f-5aa0-4049-a11d-8c31a70af9f3"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="916c8fc8-c30c-445c-810f-3a4188fe97b0"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalHCUUmum}==0 ? '' : $V{SubTotalHCUUmum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="27da6634-e9e6-4f04-97e9-bd01141375fa">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{HCUUMUM}==0 ? '' : $F{HCUUMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="e99890ca-a7f2-43f8-bb22-ce2593c184e1">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalHCUUmum_1}==0 ? '' : $V{SubTotalHCUUmum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="2922769c-7f2f-4609-b195-9979afc4d3fb">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="e2342da1-c5b3-4f9b-bdb3-f4a8256dadff"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="01bee95d-57e6-42ae-ad96-54703ca217e1"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalHCUJKN}==0 ? '' : $V{SubTotalHCUJKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="2931ee2c-b664-47fe-87cd-7bc37eca4afa">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{HCUJKN}==0 ? '' : $F{HCUJKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="2dc265c8-d128-4e6f-bc74-0bde223e01ec">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalHCUJKN_1}==0 ? '' : $V{SubTotalHCUJKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="a5eb55c3-ada1-4ce9-bf52-b57d325a3555">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="79131120-4d54-4091-a28b-47d48343e513"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKD]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="67234c11-2c94-429a-808b-1772fc80ba40"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalHCUJKD}==0 ? '' : $V{SubTotalHCUJKD}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="fa3331ef-62b9-4fd2-aaa3-5aa88f397a33">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{HCUJKD}==0 ? '' : $F{HCUJKD}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="37e6ea86-0252-4594-b2c1-327d552b952a">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalHCUJKD_1}==0 ? '' : $V{SubTotalHCUJKD_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="f0255f81-9ae6-4616-bab5-2b862a843f42">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="69d58310-5822-4b4d-a124-bfc2dad847fd"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="efd55210-d177-4223-8679-d02fa4b759a4"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalHCUIKS}==0 ? '' : $V{SubTotalHCUIKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="663a9cbf-3ae5-4c85-8dfd-57d7f4f29b14">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{HCUIKS}==0 ? '' : $F{HCUIKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="1a8e401d-46e6-4f9b-8af3-8aabd9e4838a">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalHCUIKS_1}==0 ? '' : $V{SubTotalHCUIKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+							<jr:columnGroup width="80" uuid="78ed2d95-1912-45ba-bb04-165897642a69">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="80" height="15" uuid="b2639a2c-9359-45aa-b619-2bfd9ac89dc7"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[II]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="26359711-cfca-4840-b103-6791a4a3f4de">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="372fa67c-6ac4-4525-8c00-f9fc6bb8df5a"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="ea09f6be-009a-43e4-9181-1b13a8b8aeb9"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS2Umum}==0 ? '' : $V{SubTotalKLS2Umum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="38453688-6dfc-476e-b60b-abff7681578f">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS2UMUM}==0 ? '' :  $F{KLS2UMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="6e6774dc-c5a1-4f06-9da0-ee2d9a87a46a">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS2Umum_1}==0 ? '' :  $V{SubTotalKLS2Umum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="5a94d941-38cd-423c-b8d5-033636bb3520">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="fb4de68e-f772-4dec-805b-950bbaeb4cc0"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="ab921204-49eb-4788-9c65-68f957e860d8"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS2JKN}==0 ? '' : $V{SubTotalKLS2JKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="9c1b99d8-9090-4530-bf5c-2e26aa33e5b5">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS2JKN}==0 ? '' : $F{KLS2JKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="222037b0-aa87-4a37-88b1-c97a539d7fda">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS2JKN_1}==0 ? '' : $V{SubTotalKLS2JKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="4f0b58d7-90a3-4163-b606-d0b17fff92c7">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="20a8fc95-9d73-431f-962f-4b99def209ee"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKD]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="0f1b2cf6-6f24-44ea-aa13-ea046abf431b"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS2JKD}==0 ? '' : $V{SubTotalKLS2JKD}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="1150826f-7bdc-4d1c-8e5f-a9745f927696">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS2JKD}==0 ? '' : $F{KLS2JKD}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="e66c317c-73f9-4c2f-876a-09fbd16e6906">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS2JKD_1}==0 ? '' : $V{SubTotalKLS2JKD_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="a45da362-8d93-4a69-a7bd-bdf3a8f04891">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="8327f568-dc46-4221-9541-c7c6d6a85cbe"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="03614adf-377e-450f-9662-5053932a11ef"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS2IKS}==0 ? '' : $V{SubTotalKLS2IKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="7f3ae567-2e8d-46c2-a96c-22a1792e4a64">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS2IKS}==0 ? '' : $F{KLS2IKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="4acc9ac2-c972-4ad9-94bf-f6abb2016c47">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS2IKS_1}==0 ? '' : $V{SubTotalKLS2IKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+							<jr:columnGroup width="80" uuid="e27586a4-67f6-4cb2-bbbe-8aaa5e1a1e5b">
+								<jr:tableHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="80" height="15" uuid="3cfd1486-ddb1-49f0-b5ca-50511e020488"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font size="8" isBold="true"/>
+										</textElement>
+										<text><![CDATA[III]]></text>
+									</staticText>
+								</jr:tableHeader>
+								<jr:column width="20" uuid="127d1734-3f2f-4404-8b76-560468baf959">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="2cd0e756-2832-4ede-9e3a-cc39d1b419e9"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[U]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="7900b852-e8b7-46ed-bfa6-790909af4477"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS3Umum}==0 ? '' : $V{SubTotalKLS3Umum}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="56564866-5167-4176-a64a-07a8dc163034">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS3UMUM}== 0 ? '' : $F{KLS3UMUM}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="ed842ff7-ad39-411d-84e0-3943e2ba9c5f">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS3Umum_1}== 0 ? '' : $V{SubTotalKLS3Umum_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="83afe470-5267-4d51-a41d-19323b8b976f">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="dbae1b39-9eee-4df3-bfa7-acaa0b6369b1"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKN]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="428e1b09-5726-4f9e-bfcf-d5bf361ccd3e"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS3JKN}==0 ? '' : $V{SubTotalKLS3JKN}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="dcdf9451-811a-414f-af1a-7916ebf873d6">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS3JKN}==0 ? '' : $F{KLS3JKN}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="6357b18d-6233-4c63-bb52-29ed232055fa">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS3JKN_1}==0 ? '' : $V{SubTotalKLS3JKN_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="ce45436a-7fa3-419d-80e0-4eb3f747220e">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="5e8afc74-1a51-4623-8d73-123bf7a99119"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[JKD]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="ebe6d746-e1a4-4c6b-8ffe-7924b7db8761"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS3JKD}==0 ? '' : $V{SubTotalKLS3JKD}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="f5001635-de9c-48e3-8f31-6bc11da0aca7">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS3JKD}== 0 ? '' : $F{KLS3JKD}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="6679c6a2-522b-4980-82df-e8f475710199">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS3JKD_1}== 0 ? '' : $V{SubTotalKLS3JKD_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="20" uuid="56ba2839-cb54-4541-9fd7-de1d7cb40e79">
+									<jr:tableHeader height="15" rowSpan="1">
+										<staticText>
+											<reportElement x="0" y="0" width="20" height="15" uuid="11714cfa-30ce-4c0e-9a56-b65a0e53dab2"/>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="8" isBold="true"/>
+											</textElement>
+											<text><![CDATA[IKS]]></text>
+										</staticText>
+									</jr:tableHeader>
+									<jr:groupFooter groupName="groupkeadaan">
+										<jr:cell height="18" rowSpan="1">
+											<textField isBlankWhenNull="true">
+												<reportElement x="0" y="0" width="20" height="18" uuid="ed736018-fe18-4890-a8a1-502123477e84"/>
+												<box>
+													<leftPen lineWidth="0.75"/>
+													<bottomPen lineWidth="0.75"/>
+												</box>
+												<textElement textAlignment="Center" verticalAlignment="Middle"/>
+												<textFieldExpression><![CDATA[$V{SubTotalKLS3IKS}==0 ? '' : $V{SubTotalKLS3IKS}]]></textFieldExpression>
+											</textField>
+										</jr:cell>
+									</jr:groupFooter>
+									<jr:detailCell height="18" rowSpan="1">
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="133e3de7-f160-4616-b33f-b6eec2ccaf19">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$F{KLS3IKS}==0 ? '' : $F{KLS3IKS}]]></textFieldExpression>
+										</textField>
+										<textField isBlankWhenNull="true">
+											<reportElement x="0" y="0" width="20" height="18" uuid="500bed7b-bfa7-4936-84b4-a0ca498e2567">
+												<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true :false]]></printWhenExpression>
+											</reportElement>
+											<box>
+												<leftPen lineWidth="0.75"/>
+												<bottomPen lineWidth="0.75"/>
+											</box>
+											<textElement textAlignment="Center" verticalAlignment="Middle">
+												<font size="10"/>
+											</textElement>
+											<textFieldExpression><![CDATA[$V{SubTotalKLS3IKS_1}==0 ? '' : $V{SubTotalKLS3IKS_1}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+						</jr:columnGroup>
+						<jr:column width="33" uuid="570cb048-c80e-4793-8ef4-4600f1338153">
+							<jr:tableHeader height="45" rowSpan="3">
+								<staticText>
+									<reportElement x="0" y="0" width="32" height="45" uuid="3d900c44-1e70-4b6d-9429-0845974845de"/>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="8" isBold="true"/>
+									</textElement>
+									<text><![CDATA[JUMLAH]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:groupFooter groupName="groupkeadaan">
+								<jr:cell height="18" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement x="0" y="0" width="32" height="18" uuid="1cd0078c-d34a-4bd9-a40a-aa23abe5bd0e"/>
+										<box>
+											<leftPen lineWidth="0.75"/>
+											<bottomPen lineWidth="0.75"/>
+											<rightPen lineWidth="0.75"/>
+										</box>
+										<textElement textAlignment="Center" verticalAlignment="Middle">
+											<font isBold="true"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$V{SubTotal}]]></textFieldExpression>
+									</textField>
+								</jr:cell>
+							</jr:groupFooter>
+							<jr:detailCell height="18" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="32" height="18" uuid="0139b69d-4b18-4d16-a3f5-18108eb6117c">
+										<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? false :true]]></printWhenExpression>
+									</reportElement>
+									<box>
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font size="10"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+								</textField>
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="32" height="18" uuid="889bd5e8-208c-4e74-9a90-9a27e54ebfbc">
+										<printWhenExpression><![CDATA[$F{idkeadaan}==7 ? true:false]]></printWhenExpression>
+									</reportElement>
+									<box rightPadding="3">
+										<leftPen lineWidth="0.75"/>
+										<bottomPen lineWidth="0.75"/>
+										<rightPen lineWidth="0.75"/>
+									</box>
+									<textElement textAlignment="Right" verticalAlignment="Middle">
+										<font size="10" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{SubTotal1}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<summary>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="12" width="100" height="20" uuid="be9c511c-cc34-41aa-ac27-d991573bf27e"/>
+				<text><![CDATA[Mengetahui :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="32" width="349" height="20" uuid="c331a6f1-96ca-40d9-9351-d0f5ea3621f0"/>
+				<textFieldExpression><![CDATA["Kepala Ruangan "+$F{RUANG}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="96" width="199" height="1" uuid="1219b2a2-9d81-4c67-bbd4-88ef2a7af934"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="96" width="100" height="20" uuid="d6a6add6-70a7-46b1-a206-87af14f7e6a0"/>
+				<text><![CDATA[NIP/NIK.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="32" width="149" height="20" uuid="a612de91-ae75-44ad-8960-f033546fef79"/>
+				<text><![CDATA[Yang Membuat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="389" y="95" width="149" height="1" uuid="d81edbad-902e-4282-bf4a-06c8c7c91b91"/>
+			</line>
+			<staticText>
+				<reportElement x="389" y="95" width="100" height="20" uuid="9964381b-c3a2-4117-b81f-79aba6678dd2"/>
+				<text><![CDATA[NIP/NIK.]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="389" y="12" width="183" height="20" uuid="a6fb57f6-6389-4f2d-8d1d-59adb57a1544"/>
+				<textFieldExpression><![CDATA[$F{TGLSKRG}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CetakBarcodeRM" pageWidth="283" pageHeight="113" columnWidth="273" leftMargin="5" rightMargin="5" topMargin="2" bottomMargin="5" uuid="c9069c98-01ee-43c0-8523-0a0b36708f98">
+	<property name="ireport.zoom" value="2.853116706110003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="MyStyle" forecolor="#000000" pattern="" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() > 25 && $F{NAMALENGKAP}.trim().length() <= 30]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() > 30]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{NAMALENGKAP}.trim().length() < 26]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#FFFFFF" fontSize="14" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="PNORM" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL master.CetakBarcodeRM($P{PNORM})]]>
+	</queryString>
+	<field name="NORM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NORM2" class="java.lang.String"/>
+	<field name="NAMALENGKAP" class="java.lang.String"/>
+	<field name="NORMLABEL" class="java.lang.String"/>
+	<field name="KARAKTER" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="102" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="273" height="36" uuid="c044f542-cc9f-46df-984e-0ac997ac904d"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial" size="25" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="MyStyle" x="2" y="64" width="270" height="32" uuid="0e0212c4-8657-49e4-b84f-670b227eef22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="78" y="40" width="180" height="24" uuid="a3a02f94-5dba-4445-9e81-e5266af823c7"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{NORMLABEL}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CetakRujukanKeluar" language="groovy" pageWidth="595" pageHeight="260" columnWidth="547" leftMargin="28" rightMargin="20" topMargin="14" bottomMargin="14" uuid="d84ba5a7-048f-4251-9a1f-ebf63450da68">
+	<property name="ireport.zoom" value="1.4641000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="PNOPEN" class="java.lang.String"/>
+	<parameter name="CETAK_HEADER" class="java.lang.String">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGES_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" "]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CALL pendaftaran.CetakRujukanKeluar($P{PNOPEN})]]>
+	</queryString>
+	<field name="IDPPK" class="java.lang.Integer"/>
+	<field name="NAMAINSTANSI" class="java.lang.String"/>
+	<field name="ALAMATPPK" class="java.lang.String"/>
+	<field name="NORUJUKAN" class="java.lang.String"/>
+	<field name="CARABAYAR" class="java.lang.Integer"/>
+	<field name="JENISRUJUKAN" class="java.lang.String"/>
+	<field name="NOKARTUBPJS" class="java.lang.String"/>
+	<field name="TUJUAN" class="java.lang.String"/>
+	<field name="NAMAPASIEN" class="java.lang.String"/>
+	<field name="TGLLAHIR" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="JENISKELAMIN" class="java.lang.String"/>
+	<field name="KETERANGAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TUJUANRUANGAN" class="java.lang.String"/>
+	<field name="RUANGAN_PENJAMIN" class="java.lang.String"/>
+	<field name="JENISKUNJUNGAN" class="java.lang.String"/>
+	<field name="DIAGNOSA" class="java.lang.String"/>
+	<field name="NAMADOKTER" class="java.lang.String"/>
+	<field name="TGLRUJUKAN" class="java.sql.Timestamp"/>
+	<field name="MASABERLAKU" class="java.sql.Timestamp"/>
+	<field name="TGLCETAK" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="3" width="40" height="47" uuid="1ce460e9-6617-4354-b4b4-de1c76a04937">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ? false : true]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{IMAGES_PATH} +  $F{IDPPK}+".png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="168" y="1" width="224" height="18" uuid="bf21130a-9877-4539-b578-762d3b2c1117">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ? true : false]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="11" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SURAT RUJUKAN ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="4" width="250" height="20" uuid="9c7c38dc-0f16-46c1-8966-89926331aac9">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ? false : true]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAINSTANSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="24" width="250" height="15" uuid="e38afda0-30f9-4097-8886-22fc1997d211">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ? false : true]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ALAMATPPK}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="7" width="156" height="30" uuid="2b963c9b-7ff1-4e64-8f69-51c667cdc2be">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ? true : false]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{IMAGES_PATH} +  "logo-bpjs.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="168" y="19" width="224" height="18" uuid="e0c47490-e442-493f-bf40-ed4c4085abab">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2]]></printWhenExpression>
+				</reportElement>
+				<box leftPadding="5"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAINSTANSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="9" width="119" height="13" uuid="a23f64a8-f878-41a4-93f4-501d31b7c71a"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NORUJUKAN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="409" y="22" width="119" height="13" uuid="8b5a98a5-c9d2-4a0a-9c41-204be9371a32"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TGLRUJUKAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="392" y="9" width="16" height="13" uuid="0422ffa7-0a3a-45b5-9432-c3731ee9c08d"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="22" width="16" height="13" uuid="ad990992-43ce-4738-b4af-85923c4e4e83"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Tgl.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="182" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="59" height="13" uuid="9600c333-1215-44aa-9c4b-ea244f18941a"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Kepada Yth. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="80" height="12" uuid="e4eb6d35-30d0-43e1-a1ff-c58d32c7533e"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Nama Peserta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="80" height="12" uuid="e2c94baf-b142-414c-8ed5-3327d276af14"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[No. Kartu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="80" height="12" uuid="b4a4920f-71f6-4897-8363-43618ab24ac7"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Diagnosa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="97" width="80" height="12" uuid="729a5f57-d6a4-483b-bacc-e4ff91f4963d"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="116" width="273" height="12" uuid="9a165219-455c-497c-b6a1-c9524bea5387"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="8"/>
+				</textElement>
+				<text><![CDATA[Demikian atas bantuannya, diucapkan banyak terima kasih.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="273" height="13" uuid="42eeb6be-3fd5-40b1-854f-705359e297d7"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Mohon pemeriksaan dan penanganan lebih lanjut :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="47" width="10" height="12" uuid="0a12e6a9-31ce-4b85-bd7b-48ce14a1bfa1"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="59" width="10" height="12" uuid="4fc6039d-ed36-4723-af95-660406e759da"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="97" width="10" height="12" uuid="bfbb6958-6bc0-4780-a6aa-e045a2d64811"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="85" width="10" height="12" uuid="e94e5c46-0b3a-4890-bac1-c1d197b8f44d"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="19" width="289" height="13" uuid="9b99d8cb-9bb4-41ba-a89d-25795361c093"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TUJUAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="47" width="289" height="12" uuid="dc49dc7d-fe44-4513-8cde-a6262c7d5947"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOKARTUBPJS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="59" width="289" height="12" uuid="0665988b-f34a-4832-8c57-09b69929151e"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAPASIEN}+" ("+$F{JENISKELAMIN}+")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="137" width="124" height="12" uuid="59cc8b0f-38c7-4623-b8f0-2f51c6fb4b45"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Mengetahui]]></text>
+			</staticText>
+			<line>
+				<reportElement x="404" y="180" width="122" height="1" uuid="4d9eee7b-87ee-4b63-8c08-be1f9a1bdcb3"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="90" y="85" width="289" height="12" uuid="f0fb69f4-5845-4b9c-8ece-4f567d29a179"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIAGNOSA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="32" width="134" height="13" uuid="a32e953e-3679-42a9-8339-969363e0d54e"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JENISKUNJUNGAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="97" width="289" height="12" uuid="48f93b0e-1276-46c8-8b14-b349fba8ec5e"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KETERANGAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="5" width="200" height="13" uuid="4f91a091-ba9e-4074-b4dc-c2d97900025e"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TUJUANRUANGAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="392" y="19" width="134" height="13" uuid="c89d2ef1-ae9f-47db-abe0-f297ce868cb9"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JENISRUJUKAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="5" width="10" height="13" uuid="10b26426-c1a6-404f-b508-bab70fadc2a9"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="72" width="80" height="12" uuid="55087095-f9b4-4cf7-ae45-c35b3ba3dfc3"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[Tgl. Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="72" width="10" height="12" uuid="9c3da11f-36aa-47c5-a1a3-f6f80e5d2443"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="90" y="72" width="289" height="12" uuid="d2032ccd-a162-4d8a-9f35-3a15dd434f35"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TGLLAHIR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="143" width="200" height="12" uuid="b9dd4319-83de-42d2-b35b-bd28fcd35cf0">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Narrow" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* Tgl. Rencana Berkunjung " + DateFormat.getDateInstance(DateFormat.LONG, $P{REPORT_LOCALE}).format($F{TGLRUJUKAN})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="131" width="200" height="12" uuid="e448441a-0f49-4219-8690-87b693e5f533">
+					<printWhenExpression><![CDATA[$F{CARABAYAR}==2 ]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Narrow" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* Rujukan Berlaku Sampai Dengan " + DateFormat.getDateInstance(DateFormat.LONG, $P{REPORT_LOCALE}).format($F{MASABERLAKU})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="170" width="200" height="12" forecolor="#666666" uuid="19c07ab0-3fae-4e1f-8d79-b86bd1505032"/>
+				<textElement>
+					<font fontName="Arial Narrow" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TGLCETAK}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

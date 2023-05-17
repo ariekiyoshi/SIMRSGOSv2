@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanRekapMonitoringKegiatanPelayanan" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69ddd00f-488b-4e22-a699-79fd910c87f5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TGLAWAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TGLAKHIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CALL laporan.MonitoringKegiatanPelayananRekap($P{TGLAWAL},$P{TGLAKHIR})]]>
+	</queryString>
+	<field name="RUANGAN" class="java.lang.String"/>
+	<field name="DESKRIPSI" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BLM_TERIMA_KUNJUNGAN" class="java.math.BigDecimal"/>
+	<field name="BLM_FINAL_KUNJUNGAN" class="java.math.BigDecimal"/>
+	<field name="BLM_TERIMA_RESEP" class="java.math.BigDecimal"/>
+	<field name="BLM_TERIMA_LAB" class="java.math.BigDecimal"/>
+	<field name="BLM_TERIMA_RAD" class="java.math.BigDecimal"/>
+	<field name="BLM_TERIMA_KONSUL" class="java.math.BigDecimal"/>
+	<field name="BLM_TERIMA_MUTASI" class="java.math.BigDecimal"/>
+	<variable name="VNO" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="121" splitType="Stretch">
+			<rectangle>
+				<reportElement x="660" y="101" width="71" height="20" uuid="8c584aad-5f43-44c8-9bb7-fc2a0305aa73"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="447" y="101" width="71" height="20" uuid="caf08ebe-d995-48dc-bff4-23ff235750de"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="447" y="101" width="71" height="20" uuid="9878a19f-49b0-4489-be6a-bc8aa2fb90e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Resep]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="81" width="29" height="40" uuid="ed3617e3-8d45-49ee-94d0-953e8a2a6691"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="29" y="81" width="216" height="40" uuid="2a8db5fc-00aa-45a0-9111-7413a6fa661d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="245" y="101" width="101" height="20" uuid="0e1d4eb4-8c86-4ec9-8799-314464a8bfaa"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="22" uuid="310c18c1-7490-47e7-a951-40b9595273f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REKAP STATUS KEGIATAN LAYANAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="100" height="20" uuid="a193e524-22a0-4701-a6b1-689cb9ff4453"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[PERIODE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="38" width="270" height="20" uuid="d415a332-e1ba-403e-8afa-f21751b172ee"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" : "+$P{TGLAWAL}+" s/d "+$P{TGLAKHIR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="81" width="29" height="40" uuid="df33b2a5-1488-4a2a-8a1b-a8b505348c3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="81" width="216" height="40" uuid="aef4c52a-e039-4484-b542-fbf85559beaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ruangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="101" width="101" height="20" uuid="c69349e7-2cd9-4797-b5f1-ceadb295243f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Pengunjung]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="346" y="101" width="101" height="20" uuid="97286941-e3a9-4352-89a6-39079bdfd739"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="346" y="101" width="101" height="20" uuid="eb8ecff6-3ee8-4a8d-9ee9-8703841ea666"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Final Kunjungan]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="518" y="101" width="71" height="20" uuid="b4512109-db73-4dea-8bda-2c75c2bd7e12"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="518" y="101" width="71" height="20" uuid="a7033494-69b3-46fb-80bf-aa8af2d8f555"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Lab]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="589" y="101" width="71" height="20" uuid="7031a2a5-9b29-4f54-a6a0-8500c2921da3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="589" y="101" width="71" height="20" uuid="a4af8adc-9a21-493d-b630-eba54bd98109"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Rad]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="731" y="101" width="71" height="20" uuid="c7a9e849-0f3e-4c59-93d9-83a59f743b9f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="731" y="101" width="71" height="20" uuid="6c9b706c-ceca-436c-9c98-1fbae0bc5c70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Mutasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="660" y="101" width="71" height="20" uuid="1de06be1-4c95-460e-86f7-10cde87c2fd6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Terima Konsul]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="245" y="81" width="557" height="20" uuid="e5886a9a-e526-4c60-8fdc-028e8647a918"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="245" y="81" width="557" height="20" uuid="0e238b9c-e6ad-492d-9a1a-5f616529fcae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Belum]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="518" y="0" width="71" height="20" uuid="f6af9435-873b-4dc8-a558-276de888e987"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="447" y="0" width="71" height="20" uuid="99deeb95-ec43-4eb9-89cc-ae4fa72dcb67"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="346" y="0" width="101" height="20" uuid="c662f72e-9aeb-4cb4-82be-27639142c554"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="660" y="0" width="71" height="20" uuid="e7bf41e7-f3ba-4134-bd77-b399566c7bef"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="731" y="0" width="71" height="20" uuid="36fd353f-770b-4d88-b32b-e856a0cc7e63"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="245" y="0" width="101" height="20" uuid="ebf14b83-d9d1-45c1-9d7a-6637fe3e3a58"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="589" y="0" width="71" height="20" uuid="17e2fee0-df91-498c-b9c6-fa13f75c8212"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="29" height="20" uuid="974b1e14-9d83-40a4-a9aa-8421f86a0330"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="29" y="0" width="216" height="20" uuid="371d1562-243d-437d-8ecb-cedd1f649821"/>
+			</rectangle>
+			<textField>
+				<reportElement x="35" y="0" width="186" height="20" uuid="1b312f59-90c3-4024-86aa-1be6eabe8955"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DESKRIPSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="29" height="20" uuid="92a80926-311a-41f5-9dfc-baa439a9991b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{VNO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="0" width="101" height="20" uuid="b676eedc-e1dd-444a-a4da-f15da7acdb8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_KUNJUNGAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="0" width="101" height="20" uuid="499b0107-4f0e-4384-89d6-adbb809a87cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_FINAL_KUNJUNGAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="0" width="71" height="20" uuid="f974c7a3-ae2f-4228-adbe-2562fd4bfc8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_RESEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="0" width="71" height="20" uuid="fc5b1beb-2697-4998-b255-f8e560800541"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_LAB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="589" y="0" width="71" height="20" uuid="f434d966-00c4-4b0d-91ed-4e1034438fb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_RAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="660" y="0" width="71" height="20" uuid="1ffc8b0f-a01c-44ae-a1ea-f553e2736ca6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_KONSUL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="731" y="0" width="71" height="20" uuid="02ff12c8-9711-4c8d-914d-3b3406535886"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BLM_TERIMA_MUTASI}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CetakDeposit" pageWidth="595" pageHeight="260" columnWidth="547" leftMargin="28" rightMargin="20" topMargin="14" bottomMargin="14" uuid="d84ba5a7-048f-4251-9a1f-ebf63450da68">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="PID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL pembayaran.CetakDeposit($P{PID})]]>
+	</queryString>
+	<field name="IDDEPOSIT" class="java.lang.Integer"/>
+	<field name="IDTAGIHAN" class="java.lang.String"/>
+	<field name="TOTAL" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TANGGALDEPOSIT" class="java.sql.Timestamp"/>
+	<field name="NORM" class="java.lang.String"/>
+	<field name="NAMALENGKAP" class="java.lang.String"/>
+	<field name="NAMAINSTANSI" class="java.lang.String"/>
+	<field name="KET" class="java.lang.String"/>
+	<field name="NIP" class="java.lang.String">
+		<fieldDescription><![CDATA[Nomor Induk Pegawai / Karyawan]]></fieldDescription>
+	</field>
+	<field name="PENGGUNA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PEMBAYAR" class="java.lang.String"/>
+	<field name="JENIS" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="232" splitType="Stretch">
+			<textField>
+				<reportElement x="223" y="51" width="135" height="13" uuid="a23f64a8-f878-41a4-93f4-501d31b7c71a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IDDEPOSIT}+" - "+$F{IDTAGIHAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="75" width="163" height="13" uuid="9b99d8cb-9bb4-41ba-a89d-25795361c093"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PEMBAYAR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="89" width="284" height="13" uuid="dc49dc7d-fe44-4513-8cde-a6262c7d5947"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KET}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="103" width="163" height="13" uuid="0665988b-f34a-4832-8c57-09b69929151e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMALENGKAP}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="195" y="116" width="163" height="13" uuid="3b37fa25-81c4-4f88-afc2-15d249f07651"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NORM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="195" y="130" width="163" height="13" uuid="02c60c55-b03a-4c78-8ab3-837a0ae90703"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="417" y="182" width="130" height="13" uuid="f2ef015d-a77c-42bd-b479-5416e74a7378"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TANGGALDEPOSIT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="417" y="212" width="130" height="13" uuid="ca837ee1-1fc9-4d39-8831-b25406c2af3e"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PENGGUNA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0" isBlankWhenNull="true">
+				<reportElement x="195" y="143" width="268" height="25" uuid="45b5fe15-c160-4846-8455-9d6f2497667e"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(new Terbilang(Long.toString($F{TOTAL}))).getTerbilang()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="123" y="51" width="88" height="13" uuid="7d4acd0a-c041-4ba7-bc94-faa83dc6f7ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nomor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="51" width="12" height="13" uuid="802dcfb7-87e3-46e5-9b3f-32d3a78ff120"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="75" width="12" height="13" uuid="c3e0be1d-97f5-47eb-929a-6e31ed3d9329"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="89" width="12" height="13" uuid="ea4ff485-b87c-4c29-95b5-c44642d54880"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="89" width="128" height="13" uuid="988f9a36-5188-467b-8466-734d6e927e7d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Untuk Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="103" width="128" height="13" uuid="cb5584e3-7bc3-4e1d-bb21-9c196ccada71"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="103" width="12" height="13" uuid="901c74d0-34dd-468e-8ea6-bf9ce94493d3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="116" width="12" height="13" uuid="ef5819a5-eb73-45a0-a797-7795f4e072fe"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="116" width="128" height="13" uuid="6a86946f-5e59-433c-b0e6-54bcc7fe5711"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No RM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="130" width="128" height="13" uuid="1a5d120e-4be5-4495-b577-e84904996ec6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="130" width="12" height="13" uuid="0e868061-4f6d-4cf1-bceb-3685e555a774"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="143" width="128" height="13" uuid="5c3cea85-0ce9-403b-9b1c-6db16df7d0a0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Terbilang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="143" width="12" height="13" uuid="2d685ab9-d338-423f-9af1-2eb1455d8756"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="21" width="408" height="13" uuid="266c9479-861e-49fd-8b27-5ec409d430a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JENIS}==1 ? "KWITANSI UANG MUKA":"KWITANSI PENGEMBALIAN UANG MUKA"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="55" y="75" width="128" height="13" uuid="71234e39-1c84-4c7b-9caa-9409ecbd7a8d"/>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JENIS}==1 ? "Telah Terima Dari" : "Telah Dikembalikan Ke"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LaporanMonitoringKegiatanPelayanan" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69ddd00f-488b-4e22-a699-79fd910c87f5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="62"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PSTATUS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RUANGAN" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TGLAWAL" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TGLAKHIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[CALL laporan.MonitoringKegiatanPelayanan($P{PSTATUS},$P{RUANGAN},$P{TGLAWAL},$P{TGLAKHIR})]]>
+	</queryString>
+	<field name="NOPEN" class="java.lang.String"/>
+	<field name="NORM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TANGGAL" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="KUNJUNGAN" class="java.lang.String"/>
+	<field name="MASUK" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NAMA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMOR" class="java.lang.String"/>
+	<field name="RUASAL" class="java.lang.String"/>
+	<field name="TUJUAN" class="java.lang.String"/>
+	<field name="RUTUJUAN" class="java.lang.String"/>
+	<field name="JENIS" class="java.lang.String"/>
+	<field name="STATUSLAYANAN" class="java.lang.String"/>
+	<field name="RUANGANTUJUAN" class="java.lang.String"/>
+	<field name="RUANGANASAL" class="java.lang.String"/>
+	<variable name="VNO" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="130" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="110" width="29" height="20" uuid="ed3617e3-8d45-49ee-94d0-953e8a2a6691"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="29" y="110" width="158" height="20" uuid="2a8db5fc-00aa-45a0-9111-7413a6fa661d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="187" y="110" width="148" height="20" uuid="0e1d4eb4-8c86-4ec9-8799-314464a8bfaa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="335" y="110" width="133" height="20" uuid="c08759f4-0c39-478a-b33f-45ce821f076b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="468" y="110" width="211" height="20" uuid="19c71b4e-94ca-49ab-b92a-f64ab1a6ffd1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="679" y="110" width="123" height="20" uuid="32387f26-4ea3-4e79-8798-a1ed8291e619"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="22" uuid="310c18c1-7490-47e7-a951-40b9595273f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONITORING STATUS KEGIATAN LAYANAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="38" width="100" height="20" uuid="a193e524-22a0-4701-a6b1-689cb9ff4453"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[PERIODE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="100" height="20" uuid="de6372c6-d7df-4d6e-be7b-b54bb9e71e86"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[RUANGAN ASAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="81" width="100" height="20" uuid="8fad3282-85f7-448a-b2bd-c28338a31d11"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[RUANGAN TUJUAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="38" width="270" height="20" uuid="d415a332-e1ba-403e-8afa-f21751b172ee"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" : "+$P{TGLAWAL}+" s/d "+$P{TGLAKHIR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="59" width="270" height="20" uuid="f602d88e-03c5-4169-aee7-266eaee5ae57"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" : "+$F{RUANGANASAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="81" width="270" height="20" uuid="383842a9-1679-4ebf-ab78-811c6a254d40"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" : "+$F{RUANGANTUJUAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="110" width="29" height="20" uuid="df33b2a5-1488-4a2a-8a1b-a8b505348c3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="110" width="158" height="20" uuid="aef4c52a-e039-4484-b542-fbf85559beaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Ruangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="110" width="133" height="20" uuid="90500a00-2752-4d10-aeab-c9234338a1ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="110" width="118" height="20" uuid="ca8f87b4-2d64-4e24-b525-274835115a50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="110" width="148" height="20" uuid="c69349e7-2cd9-4797-b5f1-ceadb295243f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tujuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="110" width="211" height="20" uuid="2e2febc5-831b-4a5c-a966-04a9083fbb22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No. Reg / Identitas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="29" height="20" uuid="974b1e14-9d83-40a4-a9aa-8421f86a0330"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="29" y="0" width="158" height="20" uuid="371d1562-243d-437d-8ecb-cedd1f649821"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="335" y="0" width="133" height="20" uuid="59b7f5e2-90fe-4adb-a935-176ea91a0a8f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="679" y="0" width="123" height="20" uuid="700146af-f039-42b9-8977-a34988cc973b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="187" y="0" width="148" height="20" uuid="7e130f2d-6442-431e-9b98-5d98b46f9da5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="468" y="0" width="211" height="20" uuid="ed0d2bf5-f2f4-4f4d-b7eb-b06cf8729d14"/>
+			</rectangle>
+			<textField>
+				<reportElement x="474" y="0" width="205" height="20" uuid="9710811a-0f93-412b-bdca-6e66110e7513"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOPEN}+" / "+$F{NAMA}+" ["+$F{NORM}+"]"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="128" height="20" uuid="659c5ca7-42bc-463e-8b87-89210a4f5795"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="0" width="152" height="20" uuid="1b312f59-90c3-4024-86aa-1be6eabe8955"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RUASAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="0" width="143" height="20" uuid="decb8c65-e259-409e-8bcf-3384d397ad13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RUTUJUAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="0" width="118" height="20" uuid="f09579a3-bb00-489a-b9b5-5bae4cb6eee0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{STATUSLAYANAN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="29" height="20" uuid="92a80926-311a-41f5-9dfc-baa439a9991b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{VNO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

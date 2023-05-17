@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CetakEtiket" language="groovy" pageWidth="141" pageHeight="170" columnWidth="125" leftMargin="8" rightMargin="8" topMargin="8" bottomMargin="8" uuid="a22efdad-8279-4b4b-9386-a700c7b301e4">
+	<property name="ireport.zoom" value="3.4522712143931042"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PKUNJUNGAN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[call layanan.CetakEtiket($P{PKUNJUNGAN})]]>
+	</queryString>
+	<field name="TANGGAL" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOMOR" class="java.lang.String"/>
+	<field name="KUNJUNGAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ASALPENGIRIM" class="java.lang.String"/>
+	<field name="CARABAYAR" class="java.lang.String"/>
+	<field name="NAMAPASIEN" class="java.lang.String"/>
+	<field name="ALAMAT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NORM" class="java.lang.String"/>
+	<field name="TGLLAHIR" class="java.lang.String"/>
+	<field name="UMUR" class="java.lang.String"/>
+	<field name="JENISPENGGUNAAN" class="java.lang.String"/>
+	<field name="NAMAOBAT" class="java.lang.String"/>
+	<field name="JUMLAH" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ATURANPAKAI" class="java.lang.String"/>
+	<field name="KETERANGAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RACIKAN" class="java.lang.String"/>
+	<field name="PETUNJUK_RACIKAN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="STATUSLAYANAN" class="java.lang.Integer"/>
+	<field name="MASA_BERLAKU" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="154" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="100" height="9" uuid="6c04ad55-0638-4412-8a0d-46e8f28368e8"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TANGGAL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="9" width="125" height="9" uuid="490437e0-c3aa-4daa-966e-7f70815ac79a"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KUNJUNGAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="18" width="125" height="9" uuid="51f8e0cd-fee3-4095-bb96-bbec8208a633"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ASALPENGIRIM}+" / "+$F{CARABAYAR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="27" width="125" height="9" uuid="8067a228-4692-40cc-b582-457bfc3eb4a4"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAPASIEN}+" / "+$F{NORM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="36" width="125" height="9" uuid="0e8791a0-6f2b-4094-aa2f-cebbec556739"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TGLLAHIR}+" / "+$F{UMUR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="56" width="125" height="11" uuid="8b60e7c9-cca0-4f60-8f2d-fe333a953afb"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{JENISPENGGUNAAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="67" width="125" height="9" uuid="dd486497-80b2-4e37-8134-e46b134b6209"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAMAOBAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="102" width="125" height="19" uuid="764d7c75-8563-4230-984a-857094afc966"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ATURANPAKAI} + " " +$F{KETERANGAN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="d/M/yyyy" isBlankWhenNull="true">
+				<reportElement x="0" y="138" width="125" height="9" uuid="eae21db7-9b62-4fc2-867f-3b468c00b3c7"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MASA_BERLAKU}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="93" width="100" height="9" uuid="4da5cf36-f559-46e6-b2ff-8216a8334b83"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Dosis :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="129" width="100" height="9" uuid="5981bb13-cc6d-443e-ac5c-3514c97cabf4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Tgl Kadaluarsa :]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>
